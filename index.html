@@ -3,426 +3,69 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Launchpad | Plan, Build, Ship</title>
-	<meta name="description" content="Launchpad helps teams move from idea to execution with clarity, speed, and confidence.">
+	<title>Launchpad Form</title>
+	<meta name="description" content="Launchpad request form.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 	<style>
-		:root {
-			--bg: #f7f4ee;
-			--surface: #fffdf8;
-			--surface-strong: #fff7e9;
-			--ink: #1f1d1a;
-			--muted: #5f5a52;
-			--line: #d9cfbf;
-			--brand: #b64d1f;
-			--brand-deep: #913b16;
-			--accent: #1f7a6a;
-			--max: 1120px;
-			--radius-lg: 20px;
-			--radius-md: 14px;
-			--shadow: 0 14px 36px rgba(63, 40, 20, 0.12);
-		}
-
 		* {
 			box-sizing: border-box;
 		}
 
-		html,
 		body {
 			margin: 0;
-			padding: 0;
 			font-family: "IBM Plex Sans", sans-serif;
-			color: var(--ink);
-			background:
-				radial-gradient(circle at 12% 10%, #f4dcc0 0, transparent 32%),
-				radial-gradient(circle at 88% 18%, #d4ece6 0, transparent 30%),
-				linear-gradient(160deg, #fbf8f2 0%, #f2ece1 100%);
+			color: #1f1d1a;
+			background: linear-gradient(160deg, #fbf8f2 0%, #f2ece1 100%);
 		}
 
-		img {
-			max-width: 100%;
-			display: block;
-		}
-
-		.container {
-			width: min(var(--max), 92vw);
+		.page {
+			width: min(1100px, 92vw);
 			margin: 0 auto;
-		}
-
-		.site-header {
-			padding: 26px 0;
-		}
-
-		.header-row {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 16px;
-		}
-
-		.brand {
-			display: inline-flex;
-			align-items: center;
-			gap: 10px;
-			text-decoration: none;
-			color: var(--ink);
-			font-family: "Space Grotesk", sans-serif;
-			font-weight: 700;
-			letter-spacing: 0.2px;
-		}
-
-		.brand-mark {
-			width: 36px;
-			height: 36px;
-			border-radius: 12px;
-			background: linear-gradient(145deg, #1f7a6a, #2e9e8a);
-			display: grid;
-			place-items: center;
-			color: #f7fff9;
-			font-size: 18px;
-			line-height: 1;
-		}
-
-		.btn {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			text-decoration: none;
-			font-weight: 600;
-			border-radius: 999px;
-			border: 1px solid transparent;
-			padding: 11px 18px;
-			white-space: nowrap;
-		}
-
-		.btn-primary {
-			background: var(--brand);
-			color: #fff;
-			border-color: var(--brand);
-		}
-
-		.btn-secondary {
-			background: #fff;
-			color: var(--ink);
-			border-color: var(--line);
-		}
-
-		.hero {
-			padding: 28px 0 40px;
-		}
-
-		.hero-grid {
-			display: grid;
-			grid-template-columns: 1.1fr 0.9fr;
-			gap: 26px;
-			align-items: stretch;
-		}
-
-		.hero-panel,
-		.stats-panel {
-			border-radius: var(--radius-lg);
-			border: 1px solid var(--line);
-			box-shadow: var(--shadow);
-		}
-
-		.hero-panel {
-			background: var(--surface);
-			padding: 34px;
-		}
-
-		.eyebrow {
-			display: inline-block;
-			padding: 6px 12px;
-			border-radius: 999px;
-			border: 1px solid #d8c7ad;
-			background: #fff6e8;
-			color: #6f4b2d;
-			font-weight: 600;
-			font-size: 0.82rem;
-			letter-spacing: 0.03em;
-			text-transform: uppercase;
-		}
-
-		h1,
-		h2,
-		h3 {
-			font-family: "Space Grotesk", sans-serif;
-			margin: 0;
-			line-height: 1.1;
+			padding: 30px 0 36px;
 		}
 
 		h1 {
-			margin-top: 16px;
-			font-size: clamp(2rem, 5vw, 3.4rem);
-			max-width: 16ch;
-		}
-
-		.hero p {
-			color: var(--muted);
-			font-size: 1.05rem;
-			line-height: 1.6;
-			max-width: 58ch;
-			margin: 16px 0 0;
-		}
-
-		.hero-actions {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 10px;
-			margin-top: 26px;
-		}
-
-		.stats-panel {
-			background: var(--surface-strong);
-			padding: 24px;
-			display: grid;
-			gap: 12px;
-			align-content: start;
-		}
-
-		.stat-card {
-			background: #fff;
-			border-radius: var(--radius-md);
-			border: 1px solid #eadcc8;
-			padding: 14px 16px;
-		}
-
-		.stat-card strong {
-			display: block;
-			font-family: "Space Grotesk", sans-serif;
-			font-size: 1.6rem;
-			line-height: 1;
-			margin-bottom: 8px;
-		}
-
-		.stat-card span {
-			color: var(--muted);
-			font-size: 0.95rem;
-		}
-
-		.features,
-		.embed,
-		.footer-cta {
-			padding: 24px 0 46px;
-		}
-
-		.section-title {
-			font-size: clamp(1.45rem, 3.2vw, 2.2rem);
-			margin-bottom: 12px;
-		}
-
-		.section-lead {
 			margin: 0;
-			color: var(--muted);
-			max-width: 70ch;
-			line-height: 1.6;
+			font-family: "Space Grotesk", sans-serif;
+			font-size: clamp(1.7rem, 4vw, 2.5rem);
 		}
 
-		.feature-grid {
-			margin-top: 22px;
-			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 14px;
-		}
-
-		.feature {
-			background: var(--surface);
-			border: 1px solid var(--line);
-			border-radius: var(--radius-md);
-			padding: 18px;
-			box-shadow: var(--shadow);
-		}
-
-		.feature h3 {
-			font-size: 1.16rem;
-		}
-
-		.feature p {
-			color: var(--muted);
-			line-height: 1.6;
+		p {
 			margin: 10px 0 0;
-			font-size: 0.97rem;
+			color: #5f5a52;
 		}
 
-		.embed-wrap {
-			margin-top: 18px;
-			border: 1px solid var(--line);
-			border-radius: var(--radius-lg);
-			background: var(--surface);
-			box-shadow: var(--shadow);
-			padding: 14px;
+		.form-wrap {
+			margin-top: 20px;
+			background: #fffdf8;
+			border: 1px solid #d9cfbf;
+			border-radius: 16px;
+			padding: 12px;
 		}
 
-		.embed-wrap iframe {
+		.airtable-embed {
+			display: block;
 			width: 100%;
-			min-height: 360px;
-			border: 1px dashed #cbbca6;
-			border-radius: 12px;
-			background: #fefaf3;
+			min-height: 533px;
+			border-radius: 10px;
 		}
 
-		.embed-note {
-			margin: 10px 2px 2px;
-			color: #6b645b;
+		.note {
 			font-size: 0.92rem;
-		}
-
-		.footer-cta {
-			padding-bottom: 54px;
-		}
-
-		.cta-box {
-			border: 1px solid #bccfc9;
-			border-radius: var(--radius-lg);
-			background: linear-gradient(125deg, #e6f3ef, #f8fbf9);
-			padding: 28px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 14px;
-			flex-wrap: wrap;
-		}
-
-		.cta-box p {
-			margin: 8px 0 0;
-			color: #35544d;
-		}
-
-		footer {
-			border-top: 1px solid #ddcfbb;
-			padding: 18px 0 28px;
-			color: #6a635a;
-			font-size: 0.95rem;
-		}
-
-		@media (max-width: 980px) {
-			.hero-grid {
-				grid-template-columns: 1fr;
-			}
-
-			.feature-grid {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-			}
-		}
-
-		@media (max-width: 640px) {
-			.hero-panel,
-			.stats-panel,
-			.feature,
-			.cta-box {
-				padding: 20px;
-			}
-
-			.feature-grid {
-				grid-template-columns: 1fr;
-			}
-
-			.btn {
-				width: 100%;
-			}
-
-			.hero-actions {
-				width: 100%;
-			}
+			margin-top: 10px;
 		}
 	</style>
 </head>
 <body>
-	<header class="site-header">
-		<div class="container header-row">
-			<a class="brand" href="#">
-				<span class="brand-mark">L</span>
-				<span>Launchpad</span>
-			</a>
-			<a class="btn btn-primary" href="#get-started">Get Started</a>
-		</div>
-	</header>
-
-	<main>
-		<section class="hero">
-			<div class="container hero-grid">
-				<article class="hero-panel">
-					<span class="eyebrow">Launchpad Intake</span>
-					<h1>Submit your Launchpad request.</h1>
-					<p>
-						Use the form below to send your information directly to the Launchpad workspace.
-						Complete all required fields, then submit to share your request with the team.
-					</p>
-					<div class="hero-actions">
-						<a class="btn btn-primary" href="#demo-frame">Go to Form</a>
-						<a class="btn btn-secondary" href="#">Need Help?</a>
-					</div>
-				</article>
-
-				<aside class="stats-panel" aria-label="Launchpad quick stats">
-					<div class="stat-card">
-						<strong>1</strong>
-						<span>Single form for all Launchpad requests</span>
-					</div>
-					<div class="stat-card">
-						<strong>Fast</strong>
-						<span>Structured intake helps speed up review</span>
-					</div>
-					<div class="stat-card">
-						<strong>Clear</strong>
-						<span>Consistent details make triage easier</span>
-					</div>
-				</aside>
-			</div>
+	<main class="page">
+		<h1>Launchpad Request Form</h1>
+		<p>Complete the form below and submit your request.</p>
+		<section class="form-wrap" aria-label="Launchpad form">
+			<iframe class="airtable-embed" src="https://airtable.com/embed/app0EKW78KiZTS3Sd/pag2vZcHOaiXnEVFR/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
 		</section>
-
-		<section class="features">
-			<div class="container">
-				<h2 class="section-title">What to include in your submission</h2>
-				<p class="section-lead">
-					Providing complete context helps the Launchpad team review and route your request faster.
-				</p>
-
-				<div class="feature-grid">
-					<article class="feature">
-						<h3>Purpose</h3>
-						<p>Describe what you need and why it matters so reviewers understand the request outcome.</p>
-					</article>
-					<article class="feature">
-						<h3>Scope</h3>
-						<p>Include teams involved, timeline expectations, and dependencies that might affect delivery.</p>
-					</article>
-					<article class="feature">
-						<h3>Contact</h3>
-						<p>Share the best point of contact in case the team needs quick clarification or follow-up.</p>
-					</article>
-				</div>
-			</div>
-		</section>
-
-		<section class="embed" id="demo-frame">
-			<div class="container">
-				<h2 class="section-title">Launchpad Form</h2>
-				<p class="section-lead">Complete and submit the embedded Airtable form below.</p>
-				<div class="embed-wrap">
-					<iframe class="airtable-embed" src="https://airtable.com/embed/app0EKW78KiZTS3Sd/pag2vZcHOaiXnEVFR/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-					<p class="embed-note">If the form does not load, open it directly in Airtable.</p>
-				</div>
-			</div>
-		</section>
-
-		<section class="footer-cta" id="get-started">
-			<div class="container">
-				<div class="cta-box">
-					<div>
-						<h2 class="section-title">Need to submit another request?</h2>
-						<p>You can return to this page at any time and send a new form response.</p>
-					</div>
-					<a class="btn btn-primary" href="#demo-frame">Back to Form</a>
-				</div>
-			</div>
-		</section>
+		<p class="note">If the form does not load, open it directly in Airtable.</p>
 	</main>
-
-	<footer>
-		<div class="container">&copy; 2026 Launchpad. Built for teams that ship.</div>
-	</footer>
 </body>
 </html>
